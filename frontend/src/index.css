@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #020617;
+  --surface: rgba(15, 23, 42, 0.75);
+  --surface-solid: #0f172a;
+  --text-primary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.22);
+}
+
+.light {
+  color-scheme: light;
+  --bg: #f8fafc;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-solid: #ffffff;
+  --text-primary: #0f172a;
+  --text-muted: #475569;
+  --border: rgba(148, 163, 184, 0.35);
+}
+
+* {
+  @apply outline-none;
+}
+
+body {
+  @apply min-h-screen bg-background bg-radial-shell font-sans text-slate-200 antialiased;
+  background-color: var(--bg);
+  color: var(--text-primary);
+}
+
+#root {
+  @apply min-h-screen;
+}
+
+.glass-card {
+  @apply rounded-xl border backdrop-blur-md;
+  border-color: var(--border);
+  background: var(--surface);
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.25);
+}
+
+.surface-card {
+  @apply rounded-xl border;
+  border-color: var(--border);
+  background: var(--surface-solid);
+}
+
+.interactive {
+  @apply transition duration-200 ease-fluid hover:scale-[1.02] hover:shadow-lg;
+}
+
+.focus-ring {
+  @apply focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-transparent;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}

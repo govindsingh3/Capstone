@@ -1,0 +1,25 @@
+# GitHub CODEOWNERS
+# Valid owners are either:
+# - Individual users: @username
+# - Organization teams: @org/team-name
+#
+# CURRENT MODE (temporary): single owner for fast project execution.
+# Update later when all 6 member handles are available.
+#
+# FUTURE 6-MEMBER SPLIT TEMPLATE (replace with real handles/teams):
+# /frontend/ @member1 @member2
+# /backend/  @member3 @member4
+# /.github/  @member5 @member6
+# *          @member1
+
+# Default owner for all files
+* @govindsingh3
+
+# Frontend ownership
+/frontend/ @govindsingh3
+
+# Backend ownership
+/backend/ @govindsingh3
+
+# Repo workflow templates
+/.github/ @govindsingh3

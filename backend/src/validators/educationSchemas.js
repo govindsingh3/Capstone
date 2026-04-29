@@ -1,0 +1,17 @@
+const Joi = require("joi");
+
+const contentSchema = Joi.object({
+  title: Joi.string().min(3).required(),
+  description: Joi.string().allow("").optional(),
+  type: Joi.string().valid("Video", "Quiz", "Infographic").required(),
+  url: Joi.string().uri().optional(),
+  metadata: Joi.object().optional(),
+});
+
+const quizResultSchema = Joi.object({
+  contentId: Joi.string().required(),
+  score: Joi.number().min(0).max(100).required(),
+  attempts: Joi.number().min(1).optional(),
+});
+
+module.exports = { contentSchema, quizResultSchema };

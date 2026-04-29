@@ -1,0 +1,4 @@
+institutionId,name,city,state,type,website,contactEmail,latitude,longitude,accreditation,status,earthquakeZone,floodRisk,cycloneRisk
+IIT-DL-001,Indian Institute of Technology Delhi,New Delhi,Delhi,Central,https://home.iitd.ac.in,registrar@iitd.ac.in,28.545,77.1926,NAAC A++,Active,IV,Low,Low
+IIT-BM-002,Indian Institute of Technology Bombay,Mumbai,Maharashtra,Central,https://www.iitb.ac.in,registrar@iitb.ac.in,19.1334,72.9133,NAAC A++,Active,III,Medium,High
+DU-DL-006,University of Delhi,New Delhi,Delhi,Central,https://www.du.ac.in,registrar@du.ac.in,28.6893,77.2075,NAAC A+,Active,IV,Medium,Low
