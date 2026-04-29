@@ -81,7 +81,7 @@ const ReportsPage = () => {
         <button
           type="button"
           onClick={() => setPage((value) => Math.max(1, value - 1))}
-          className="focus-ring rounded-full border border-white/10 px-3 py-1 text-sm"
+          className="focus-ring rounded-full ghost-btn px-3 py-1 text-sm"
           disabled={page === 1}
         >
           Prev
@@ -90,7 +90,7 @@ const ReportsPage = () => {
         <button
           type="button"
           onClick={() => setPage((value) => Math.min(pageCount, value + 1))}
-          className="focus-ring rounded-full border border-white/10 px-3 py-1 text-sm"
+          className="focus-ring rounded-full ghost-btn px-3 py-1 text-sm"
           disabled={page === pageCount}
         >
           Next

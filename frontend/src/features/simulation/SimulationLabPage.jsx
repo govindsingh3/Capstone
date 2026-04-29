@@ -17,13 +17,14 @@ const DebriefLoader = () => (
 
 const SpeedControl = ({ speed, onChange }) => {
   return (
-    <div className="inline-flex items-center gap-1 rounded-full border border-white/15 p-1">
+    <div className="inline-flex items-center gap-1 rounded-full p-1" style={{ border: '1px solid var(--btn-border)' }}>
       {[1, 2, 4].map((value) => (
         <button
           key={value}
           type="button"
           onClick={() => onChange(value)}
-          className={`focus-ring rounded-full px-3 py-1 text-xs ${speed === value ? "bg-secondary text-white" : "text-muted"}`}
+          className={`focus-ring rounded-full px-3 py-1 text-xs font-medium ${speed === value ? "bg-secondary text-white" : ""}`}
+          style={speed !== value ? { color: 'var(--text-primary)' } : {}}
         >
           {value}x
         </button>
@@ -86,22 +87,22 @@ const SimulationContent = () => {
 
         <div className="flex flex-wrap items-center gap-2">
           <SpeedControl speed={state.speed} onChange={setSpeed} />
-          <button type="button" onClick={toggleSound} className="focus-ring rounded-full border border-white/15 p-2" aria-label="Toggle alarm sound">
+          <button type="button" onClick={toggleSound} className="focus-ring rounded-full p-2" style={{ border: '1px solid var(--btn-border)' }} aria-label="Toggle alarm sound">
             {state.soundEnabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
           </button>
           {isRunning ? (
-            <button type="button" onClick={pauseSimulation} className="focus-ring rounded-full border border-white/15 p-2" aria-label="Pause simulation">
+            <button type="button" onClick={pauseSimulation} className="focus-ring rounded-full p-2" style={{ border: '1px solid var(--btn-border)' }} aria-label="Pause simulation">
               <Pause className="h-4 w-4" />
             </button>
           ) : (
-            <button type="button" onClick={resumeSimulation} className="focus-ring rounded-full border border-white/15 p-2" aria-label="Resume simulation">
+            <button type="button" onClick={resumeSimulation} className="focus-ring rounded-full p-2" style={{ border: '1px solid var(--btn-border)' }} aria-label="Resume simulation">
               <Play className="h-4 w-4" />
             </button>
           )}
-          <button type="button" onClick={stopSimulation} className="focus-ring rounded-full border border-rose-400/30 px-3 py-2 text-sm text-rose-200">
+          <button type="button" onClick={stopSimulation} className="focus-ring rounded-full px-3 py-2 text-sm font-medium text-rose-600" style={{ border: '1px solid rgba(220,38,38,0.5)' }}>
             End Drill
           </button>
-          <button type="button" onClick={resetSimulation} className="focus-ring rounded-full border border-white/15 p-2" aria-label="Reset simulation">
+          <button type="button" onClick={resetSimulation} className="focus-ring rounded-full p-2" style={{ border: '1px solid var(--btn-border)' }} aria-label="Reset simulation">
             <RotateCcw className="h-4 w-4" />
           </button>
         </div>

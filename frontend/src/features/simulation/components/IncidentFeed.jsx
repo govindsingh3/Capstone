@@ -14,7 +14,7 @@ const IncidentFeed = ({ feed }) => {
       <div ref={scrollRef} className="max-h-64 space-y-2 overflow-y-auto pr-1">
         {feed.length === 0 && <p className="text-sm text-muted">No incident activity yet.</p>}
         {feed.map((entry) => (
-          <article key={entry.id} className="rounded-lg border border-white/10 bg-slate-900/30 p-2.5 text-sm">
+          <article key={entry.id} className="item-card text-sm">
             <p className="mb-0.5 text-xs text-secondary">{entry.timestamp}</p>
             <p>{entry.message}</p>
           </article>

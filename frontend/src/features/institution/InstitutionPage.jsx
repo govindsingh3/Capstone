@@ -116,13 +116,13 @@ const InstitutionPage = () => {
             value={filters.q}
             onChange={onFilterChange}
             placeholder="Search name, city, code"
-            className="focus-ring rounded-xl border border-white/10 bg-slate-900/30 px-3 py-2 text-sm"
+            className="focus-ring input-field px-3 py-2 text-sm"
           />
           <select
             name="state"
             value={filters.state}
             onChange={onFilterChange}
-            className="focus-ring rounded-xl border border-white/10 bg-slate-900/30 px-3 py-2 text-sm"
+            className="focus-ring input-field px-3 py-2 text-sm"
           >
             <option value="">All states</option>
             {stateOptions.map((state) => (
@@ -135,7 +135,7 @@ const InstitutionPage = () => {
             name="type"
             value={filters.type}
             onChange={onFilterChange}
-            className="focus-ring rounded-xl border border-white/10 bg-slate-900/30 px-3 py-2 text-sm"
+            className="focus-ring input-field px-3 py-2 text-sm"
           >
             <option value="">All types</option>
             <option value="Central">Central</option>
@@ -147,7 +147,7 @@ const InstitutionPage = () => {
             name="earthquakeZone"
             value={filters.earthquakeZone}
             onChange={onFilterChange}
-            className="focus-ring rounded-xl border border-white/10 bg-slate-900/30 px-3 py-2 text-sm"
+            className="focus-ring input-field px-3 py-2 text-sm"
           >
             <option value="">All EQ zones</option>
             <option value="II">II</option>
@@ -159,7 +159,7 @@ const InstitutionPage = () => {
             name="floodRisk"
             value={filters.floodRisk}
             onChange={onFilterChange}
-            className="focus-ring rounded-xl border border-white/10 bg-slate-900/30 px-3 py-2 text-sm"
+            className="focus-ring input-field px-3 py-2 text-sm"
           >
             <option value="">All flood risk</option>
             <option value="Low">Low</option>
@@ -176,7 +176,7 @@ const InstitutionPage = () => {
                 setFilters(filterDefaults);
                 fetchData(1, filterDefaults);
               }}
-              className="focus-ring rounded-full border border-white/15 px-4 py-2 text-xs"
+              className="focus-ring rounded-full ghost-btn px-4 py-2 text-xs"
             >
               Reset
             </button>
@@ -212,7 +212,7 @@ const InstitutionPage = () => {
               setUploadFile(selected);
               setUploadStatus("");
             }}
-            className="focus-ring rounded-xl border border-white/10 bg-slate-900/30 px-3 py-2 text-xs"
+            className="focus-ring input-field px-3 py-2 text-xs"
           />
           <button
             type="submit"
@@ -238,7 +238,7 @@ const InstitutionPage = () => {
               loading="lazy"
             />
           ) : (
-            <div className="mt-3 grid h-[280px] place-items-center rounded-xl border border-white/10 bg-slate-900/20 text-xs text-muted">
+            <div className="mt-3 grid h-[280px] place-items-center item-card text-xs text-muted">
               No map coordinates available.
             </div>
           )}
@@ -247,7 +247,7 @@ const InstitutionPage = () => {
               href={`https://www.openstreetmap.org/?mlat=${selectedInstitution.latitude}&mlon=${selectedInstitution.longitude}#map=12/${selectedInstitution.latitude}/${selectedInstitution.longitude}`}
               target="_blank"
               rel="noreferrer"
-              className="mt-3 inline-block rounded-full border border-white/20 px-3 py-1 text-xs hover:bg-white/5"
+              className="mt-3 inline-block rounded-full ghost-btn px-3 py-1 text-xs hover:bg-white/5"
             >
               Open in OpenStreetMap
             </a>
@@ -267,7 +267,7 @@ const InstitutionPage = () => {
                   className={`w-full rounded-xl border px-3 py-2 text-left text-xs transition ${
                     isActive
                       ? "border-emerald-300/50 bg-emerald-500/10"
-                      : "border-white/10 bg-slate-900/20 hover:bg-white/5"
+                      : "ghost-btn bg-transparent hover:bg-secondary/10"
                   }`}
                 >
                   <p className="font-medium">{item.name}</p>
@@ -335,12 +335,12 @@ const InstitutionPage = () => {
 
               <div className="mt-4 flex flex-wrap gap-2 text-xs">
                 {item.website && (
-                  <a className="rounded-full border border-white/20 px-3 py-1 hover:bg-white/5" href={item.website} target="_blank" rel="noreferrer">
+                  <a className="rounded-full ghost-btn px-3 py-1 hover:bg-secondary/10" href={item.website} target="_blank" rel="noreferrer">
                     Website
                   </a>
                 )}
                 {item.contactEmail && (
-                  <a className="rounded-full border border-white/20 px-3 py-1 hover:bg-white/5" href={`mailto:${item.contactEmail}`}>
+                  <a className="rounded-full ghost-btn px-3 py-1 hover:bg-secondary/10" href={`mailto:${item.contactEmail}`}>
                     {item.contactEmail}
                   </a>
                 )}
@@ -358,7 +358,7 @@ const InstitutionPage = () => {
               type="button"
               disabled={pagination.page <= 1}
               onClick={() => fetchData((pagination.page || 1) - 1)}
-              className="focus-ring rounded-full border border-white/20 px-3 py-1 disabled:opacity-40"
+              className="focus-ring rounded-full ghost-btn px-3 py-1 disabled:opacity-40"
             >
               Previous
             </button>
@@ -366,7 +366,7 @@ const InstitutionPage = () => {
               type="button"
               disabled={(pagination.page || 1) >= (pagination.totalPages || 1)}
               onClick={() => fetchData((pagination.page || 1) + 1)}
-              className="focus-ring rounded-full border border-white/20 px-3 py-1 disabled:opacity-40"
+              className="focus-ring rounded-full ghost-btn px-3 py-1 disabled:opacity-40"
             >
               Next
             </button>

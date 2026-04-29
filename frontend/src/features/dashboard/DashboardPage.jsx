@@ -67,7 +67,7 @@ const DashboardPage = () => {
           <h2 className="mb-3 text-sm text-muted">Live Alerts</h2>
           <div className="max-h-64 space-y-2 overflow-y-auto pr-1">
             {liveAlerts.map((alert) => (
-              <div key={alert.id} className="rounded-lg border border-white/10 bg-slate-900/30 p-3">
+              <div key={alert.id} className="item-card p-3">
                 <div className="mb-1 flex items-start justify-between gap-2">
                   <p className="text-sm">{alert.label}</p>
                   <span className="rounded-full bg-secondary/20 px-2 py-0.5 text-xs text-secondary">{alert.level}</span>

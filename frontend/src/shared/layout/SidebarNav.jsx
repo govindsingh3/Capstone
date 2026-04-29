@@ -26,7 +26,7 @@ const SidebarContent = ({ mobile = false }) => {
           <button
             type="button"
             onClick={toggleSidebar}
-            className="interactive focus-ring rounded-full border border-white/10 p-2"
+            className="interactive focus-ring rounded-full border p-2" style={{ borderColor: 'var(--btn-border)' }}
             aria-label="Toggle sidebar"
           >
             <ChevronLeft className={`h-4 w-4 transition ${sidebarCollapsed ? "rotate-180" : ""}`} />
@@ -44,8 +44,13 @@ const SidebarContent = ({ mobile = false }) => {
               onClick={handleNav}
               className={({ isActive }) =>
                 `group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition ${
-                  isActive ? "bg-secondary/20 text-white" : "text-slate-300 hover:bg-white/5"
+                  isActive ? "" : "hover:bg-[var(--nav-inactive-hover)] [color:var(--nav-inactive)]"
                 }`
+              }
+              style={({ isActive }) =>
+                isActive
+                  ? { background: "var(--nav-active-bg)", color: "var(--nav-active-text)" }
+                  : {}
               }
             >
               {({ isActive }) => (
@@ -85,7 +90,7 @@ const SidebarNav = () => {
       </motion.aside>
 
       {mobileSidebarOpen && (
-        <div className="fixed inset-0 z-40 bg-slate-900/70 lg:hidden" onClick={closeMobileSidebar} aria-hidden="true" />
+        <div className="fixed inset-0 z-40 backdrop-blur-sm lg:hidden" style={{ background: 'rgba(15,23,42,0.45)' }} onClick={closeMobileSidebar} aria-hidden="true" />
       )}
 
       <motion.aside

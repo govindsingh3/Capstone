@@ -42,7 +42,7 @@ const Register = () => {
           value={form.name}
           onChange={onChange}
           placeholder="Full name"
-          className="focus-ring w-full rounded-xl border border-white/10 bg-slate-900/30 px-4 py-3"
+          className="focus-ring w-full input-field px-4 py-3 w-full"
         />
         <input
           name="email"
@@ -50,7 +50,7 @@ const Register = () => {
           value={form.email}
           onChange={onChange}
           placeholder="Email"
-          className="focus-ring w-full rounded-xl border border-white/10 bg-slate-900/30 px-4 py-3"
+          className="focus-ring w-full input-field px-4 py-3 w-full"
         />
         <input
           name="password"
@@ -58,13 +58,13 @@ const Register = () => {
           value={form.password}
           onChange={onChange}
           placeholder="Password"
-          className="focus-ring w-full rounded-xl border border-white/10 bg-slate-900/30 px-4 py-3"
+          className="focus-ring w-full input-field px-4 py-3 w-full"
         />
         <select
           name="role"
           value={form.role}
           onChange={onChange}
-          className="focus-ring w-full rounded-xl border border-white/10 bg-slate-900/30 px-4 py-3"
+          className="focus-ring w-full input-field px-4 py-3 w-full"
         >
           <option value="Administrator">Administrator</option>
           <option value="Teacher">Teacher / Coordinator</option>

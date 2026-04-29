@@ -32,8 +32,13 @@ const AIInsightsPage = () => {
             <div
               key={`${msg.from}-${index}`}
               className={`max-w-[90%] rounded-xl px-3 py-2 text-sm ${
-                msg.from === "ai" ? "bg-secondary/15 text-slate-100" : "ml-auto bg-white/10"
+                msg.from === "ai" ? "bg-secondary/15" : "ml-auto"
               }`}
+              style={{
+                color: msg.from === "ai" ? "var(--nav-active-text)" : "var(--text-primary)",
+                background: msg.from === "user" ? "var(--input-bg)" : undefined,
+                border: msg.from === "user" ? "1px solid var(--input-border)" : undefined,
+              }}
             >
               {msg.text}
             </div>
@@ -43,7 +48,8 @@ const AIInsightsPage = () => {
           aria-label="Type recommendation query"
           type="text"
           placeholder="Ask AI for guidance..."
-          className="focus-ring mt-3 rounded-full border border-white/10 bg-slate-900/30 px-3 py-2 text-sm"
+          className="focus-ring mt-3 rounded-full px-3 py-2 text-sm w-full"
+          style={{ background: 'var(--input-bg)', border: '1px solid var(--input-border)', color: 'var(--text-primary)' }}
         />
       </aside>
     </div>

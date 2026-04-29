@@ -9,7 +9,7 @@ const SetupPanel = ({ scenarios, difficulties, state, onUpdate, onStart }) => {
             id="scenarioSelect"
             value={state.scenarioId}
             onChange={(event) => onUpdate({ scenarioId: event.target.value })}
-            className="focus-ring mt-1 w-full rounded-xl border border-white/10 bg-slate-900/30 px-3 py-2"
+            className="focus-ring mt-1 w-full input-field px-3 py-2"
           >
             {scenarios.map((scenario) => (
               <option key={scenario.id} value={scenario.id}>{scenario.name}</option>
@@ -23,7 +23,7 @@ const SetupPanel = ({ scenarios, difficulties, state, onUpdate, onStart }) => {
             id="difficultySelect"
             value={state.difficulty}
             onChange={(event) => onUpdate({ difficulty: event.target.value })}
-            className="focus-ring mt-1 w-full rounded-xl border border-white/10 bg-slate-900/30 px-3 py-2"
+            className="focus-ring mt-1 w-full input-field px-3 py-2"
           >
             {difficulties.map((difficulty) => (
               <option key={difficulty.value} value={difficulty.value}>{difficulty.label}</option>
@@ -40,7 +40,7 @@ const SetupPanel = ({ scenarios, difficulties, state, onUpdate, onStart }) => {
             max={5000}
             value={state.participantCount}
             onChange={(event) => onUpdate({ participantCount: Number(event.target.value) || 0 })}
-            className="focus-ring mt-1 w-full rounded-xl border border-white/10 bg-slate-900/30 px-3 py-2"
+            className="focus-ring mt-1 w-full input-field px-3 py-2"
           />
         </label>
 
@@ -49,7 +49,7 @@ const SetupPanel = ({ scenarios, difficulties, state, onUpdate, onStart }) => {
             type="checkbox"
             checked={state.soundEnabled}
             onChange={() => onUpdate({ soundEnabled: !state.soundEnabled })}
-            className="h-4 w-4 rounded border-white/20 bg-slate-900/30"
+            className="h-4 w-4 rounded accent-secondary"
           />
           Enable Alarm Sound
         </label>

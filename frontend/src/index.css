@@ -12,16 +12,30 @@
   --text-primary: #e2e8f0;
   --text-muted: #94a3b8;
   --border: rgba(148, 163, 184, 0.22);
+  --input-bg: rgba(15, 23, 42, 0.5);
+  --input-border: rgba(148, 163, 184, 0.2);
+  --btn-border: rgba(148, 163, 184, 0.15);
+  --nav-inactive: #94a3b8;
+  --nav-inactive-hover: rgba(255, 255, 255, 0.05);
+  --nav-active-text: #ffffff;
+  --nav-active-bg: rgba(59, 130, 246, 0.2);
 }
 
 .light {
   color-scheme: light;
   --bg: #f8fafc;
-  --surface: rgba(255, 255, 255, 0.9);
+  --surface: rgba(255, 255, 255, 0.92);
   --surface-solid: #ffffff;
   --text-primary: #0f172a;
-  --text-muted: #475569;
-  --border: rgba(148, 163, 184, 0.35);
+  --text-muted: #334155;
+  --border: rgba(15, 23, 42, 0.12);
+  --input-bg: rgba(241, 245, 249, 0.8);
+  --input-border: rgba(15, 23, 42, 0.18);
+  --btn-border: rgba(15, 23, 42, 0.15);
+  --nav-inactive: #1e293b;
+  --nav-inactive-hover: rgba(15, 23, 42, 0.06);
+  --nav-active-text: #1e40af;
+  --nav-active-bg: rgba(59, 130, 246, 0.12);
 }
 
 * {
@@ -29,9 +43,23 @@
 }
 
 body {
-  @apply min-h-screen bg-background bg-radial-shell font-sans text-slate-200 antialiased;
+  @apply min-h-screen antialiased;
+  font-family: "Inter", "Plus Jakarta Sans", sans-serif;
   background-color: var(--bg);
   color: var(--text-primary);
+}
+
+/* Dark mode radial gradient shell */
+body:not(.light) {
+  background-image: radial-gradient(circle at 15% 15%, rgba(59,130,246,0.24), transparent 32%),
+                    radial-gradient(circle at 85% 5%, rgba(6,182,212,0.2), transparent 26%),
+                    radial-gradient(circle at 50% 100%, rgba(59,130,246,0.2), transparent 30%);
+}
+
+/* Light mode gets a clean subtle gradient */
+body.light {
+  background-image: radial-gradient(circle at 15% 15%, rgba(59,130,246,0.06), transparent 32%),
+                    radial-gradient(circle at 85% 5%, rgba(6,182,212,0.05), transparent 26%);
 }
 
 #root {
@@ -43,6 +71,10 @@ body {
   border-color: var(--border);
   background: var(--surface);
   box-shadow: 0 8px 24px rgba(2, 6, 23, 0.25);
+}
+
+.light .glass-card {
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08), 0 1px 4px rgba(15, 23, 42, 0.06);
 }
 
 .surface-card {
@@ -61,4 +93,37 @@ body {
 
 .text-muted {
   color: var(--text-muted);
+}
+
+/* Replaces: border-white/10 bg-slate-900/30 — works in both themes */
+.item-card {
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+}
+
+/* Replaces: border-white/10 bg-slate-900/30 on form inputs — works in both themes */
+.input-field {
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  border-radius: 0.75rem;
+}
+
+.input-field::placeholder {
+  color: var(--text-muted);
+}
+
+/* Replaces: border-white/10 or border-white/15 on ghost buttons */
+.ghost-btn {
+  border: 1px solid var(--btn-border);
+  border-radius: 9999px;
+}
+
+/* Progress bar track */
+.progress-track {
+  background: var(--border);
+  border-radius: 9999px;
+  overflow: hidden;
 }

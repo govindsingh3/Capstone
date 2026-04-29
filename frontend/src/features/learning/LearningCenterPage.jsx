@@ -16,7 +16,7 @@ const LearningCenterPage = () => {
               <h2 className="font-medium">{course.title}</h2>
               {course.complete && <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-xs text-emerald-300">Complete</span>}
             </div>
-            <div className="h-2 overflow-hidden rounded-full bg-slate-800">
+            <div className="progress-track h-2">
               <div className="h-full rounded-full bg-secondary" style={{ width: `${course.progress}%` }} />
             </div>
             <p className="mt-2 text-sm text-muted">{course.progress}% progress</p>

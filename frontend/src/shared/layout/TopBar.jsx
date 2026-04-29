@@ -41,17 +41,18 @@ const TopBar = () => {
         <button
           type="button"
           onClick={openMobileSidebar}
-          className="interactive focus-ring rounded-full border border-white/10 p-2 lg:hidden"
+          className="interactive focus-ring rounded-full border p-2 lg:hidden" style={{ borderColor: 'var(--btn-border)' }}
           aria-label="Open navigation menu"
         >
           <Menu className="h-4 w-4" />
         </button>
 
         <label className="relative hidden w-56 md:block" aria-label="Search">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2" style={{ color: 'var(--text-muted)' }} />
           <input
             type="search"
-            className="focus-ring w-full rounded-full border border-white/10 bg-slate-900/30 py-2 pl-9 pr-4 text-sm placeholder:text-slate-400 focus:border-secondary"
+            className="focus-ring w-full rounded-full py-2 pl-9 pr-4 text-sm focus:border-secondary"
+            style={{ background: 'var(--input-bg)', border: '1px solid var(--input-border)', color: 'var(--text-primary)' }}
             placeholder="Search modules"
           />
         </label>
@@ -60,7 +61,7 @@ const TopBar = () => {
       <div className="flex items-center gap-2 md:gap-3">
         <button
           type="button"
-          className="interactive focus-ring relative rounded-full border border-white/10 p-2"
+          className="interactive focus-ring relative rounded-full border p-2" style={{ borderColor: 'var(--btn-border)' }}
           aria-label="Notifications"
         >
           <Bell className="h-4 w-4" />
@@ -70,7 +71,7 @@ const TopBar = () => {
         <button
           type="button"
           onClick={toggleTheme}
-          className="interactive focus-ring rounded-full border border-white/10 p-2"
+          className="interactive focus-ring rounded-full border p-2" style={{ borderColor: 'var(--btn-border)' }}
           aria-label={`Activate ${theme === "dark" ? "light" : "dark"} theme`}
         >
           {theme === "dark" ? <Sun className="h-4 w-4" /> : <MoonStar className="h-4 w-4" />}
@@ -80,7 +81,7 @@ const TopBar = () => {
           <button
             type="button"
             onClick={() => setMenuOpen((state) => !state)}
-            className="focus-ring flex items-center gap-2 rounded-full border border-white/10 px-2 py-1.5"
+            className="focus-ring flex items-center gap-2 rounded-full border px-2 py-1.5" style={{ borderColor: 'var(--btn-border)' }}
             aria-haspopup="menu"
             aria-expanded={menuOpen}
             aria-label="User menu"
@@ -97,7 +98,7 @@ const TopBar = () => {
               role="menu"
               aria-label="User actions"
             >
-              <div className="border-b border-white/10 px-3 py-2 text-sm text-muted">{user?.email || "admin@dpres.app"}</div>
+              <div className="border-b px-3 py-2 text-sm" style={{ borderColor: 'var(--border)', color: 'var(--text-muted)' }}>{user?.email || "admin@dpres.app"}</div>
               <button
                 type="button"
                 onClick={logout}
