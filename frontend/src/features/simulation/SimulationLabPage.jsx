@@ -17,7 +17,7 @@ const DebriefLoader = () => (
 
 const SpeedControl = ({ speed, onChange }) => {
   return (
-    <div className="inline-flex items-center gap-1 rounded-full border border-white/15 p-1">
+    <div className="inline-flex items-center gap-1 rounded-full border border-[var(--border)] p-1">
       {[1, 2, 4].map((value) => (
         <button
           key={value}
@@ -77,31 +77,31 @@ const SimulationContent = () => {
   }
 
   return (
-    <div className="space-y-4">
-      <header className="glass-card flex flex-wrap items-center justify-between gap-3 p-4">
+    <div className="space-y-5">
+      <header className="glass-card flex flex-wrap items-start justify-between gap-3 p-5 md:p-6">
         <div>
-          <h1 className="text-xl font-semibold">Simulation Command Center</h1>
-          <p className="text-sm text-muted">Live disaster drill with dynamic incidents and real-time consequences.</p>
+          <h1 className="page-title">Simulation Command Center</h1>
+          <p className="page-subtitle mt-0">Live disaster drill with dynamic incidents and real-time consequences.</p>
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
           <SpeedControl speed={state.speed} onChange={setSpeed} />
-          <button type="button" onClick={toggleSound} className="focus-ring rounded-full border border-white/15 p-2" aria-label="Toggle alarm sound">
+          <button type="button" onClick={toggleSound} className="icon-button focus-ring rounded-full p-2" aria-label="Toggle alarm sound">
             {state.soundEnabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
           </button>
           {isRunning ? (
-            <button type="button" onClick={pauseSimulation} className="focus-ring rounded-full border border-white/15 p-2" aria-label="Pause simulation">
+            <button type="button" onClick={pauseSimulation} className="icon-button focus-ring rounded-full p-2" aria-label="Pause simulation">
               <Pause className="h-4 w-4" />
             </button>
           ) : (
-            <button type="button" onClick={resumeSimulation} className="focus-ring rounded-full border border-white/15 p-2" aria-label="Resume simulation">
+            <button type="button" onClick={resumeSimulation} className="icon-button focus-ring rounded-full p-2" aria-label="Resume simulation">
               <Play className="h-4 w-4" />
             </button>
           )}
           <button type="button" onClick={stopSimulation} className="focus-ring rounded-full border border-rose-400/30 px-3 py-2 text-sm text-rose-200">
             End Drill
           </button>
-          <button type="button" onClick={resetSimulation} className="focus-ring rounded-full border border-white/15 p-2" aria-label="Reset simulation">
+          <button type="button" onClick={resetSimulation} className="icon-button focus-ring rounded-full p-2" aria-label="Reset simulation">
             <RotateCcw className="h-4 w-4" />
           </button>
         </div>

@@ -7,6 +7,9 @@ const {
   createContent,
   listContent,
   submitQuiz,
+  listMyQuizResults,
+  getQuizLeaderboard,
+  getRevisionPlan,
 } = require("../controllers/educationController");
 
 const router = express.Router();
@@ -22,9 +25,27 @@ router.post(
 router.post(
   "/quiz-results",
   auth,
-  roleGuard(["Student"]),
+  roleGuard(["Student", "Teacher", "Administrator", "DisasterOfficer"]),
   validate(quizResultSchema),
   submitQuiz
+);
+router.get(
+  "/quiz-results",
+  auth,
+  roleGuard(["Student", "Teacher", "Administrator", "DisasterOfficer"]),
+  listMyQuizResults
+);
+router.get(
+  "/quiz-results/leaderboard",
+  auth,
+  roleGuard(["Student", "Teacher", "Administrator", "DisasterOfficer"]),
+  getQuizLeaderboard
+);
+router.get(
+  "/quiz-results/revision-plan",
+  auth,
+  roleGuard(["Student", "Teacher", "Administrator", "DisasterOfficer"]),
+  getRevisionPlan
 );
 
 module.exports = router;

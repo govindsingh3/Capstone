@@ -3,11 +3,17 @@ import { NavLink } from "react-router-dom";
 import { ChevronLeft, ShieldCheck } from "lucide-react";
 import { navItems } from "./navigation.js";
 import { useUIStore } from "../../store/index.js";
+import { useAuth } from "../../hooks/useAuth.js";
+import { getAllowedPathsForRole } from "../auth/roleAccess.js";
 
 const SidebarContent = ({ mobile = false }) => {
   const sidebarCollapsed = useUIStore((state) => state.sidebarCollapsed);
   const toggleSidebar = useUIStore((state) => state.toggleSidebar);
   const closeMobileSidebar = useUIStore((state) => state.closeMobileSidebar);
+  const { user } = useAuth();
+
+  const allowedPaths = getAllowedPathsForRole(user?.role);
+  const visibleNavItems = navItems.filter((item) => allowedPaths.includes(item.path));
 
   const handleNav = () => {
     if (mobile) closeMobileSidebar();
@@ -26,7 +32,7 @@ const SidebarContent = ({ mobile = false }) => {
           <button
             type="button"
             onClick={toggleSidebar}
-            className="interactive focus-ring rounded-full border border-white/10 p-2"
+            className="icon-button interactive focus-ring rounded-full p-2"
             aria-label="Toggle sidebar"
           >
             <ChevronLeft className={`h-4 w-4 transition ${sidebarCollapsed ? "rotate-180" : ""}`} />
@@ -35,7 +41,7 @@ const SidebarContent = ({ mobile = false }) => {
       </div>
 
       <nav className="space-y-2" aria-label="Main navigation">
-        {navItems.map((item) => {
+        {visibleNavItems.map((item) => {
           const Icon = item.icon;
           return (
             <NavLink
@@ -43,8 +49,8 @@ const SidebarContent = ({ mobile = false }) => {
               to={item.path}
               onClick={handleNav}
               className={({ isActive }) =>
-                `group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition ${
-                  isActive ? "bg-secondary/20 text-white" : "text-slate-300 hover:bg-white/5"
+                `nav-link group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition ${
+                  isActive ? "nav-link-active" : ""
                 }`
               }
             >

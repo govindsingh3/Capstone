@@ -27,30 +27,30 @@ const IncidentTrendsChart = () => {
           <AlertTriangle className="h-4 w-4 text-accent" />
           <h2 className="text-sm text-muted">Incident Trends (Risk Index)</h2>
         </div>
-        <div className="rounded-xl border border-white/10 bg-slate-900/30 p-3">
+        <div className="panel-select rounded-xl p-3">
           <svg viewBox={`0 0 ${width} ${height}`} className="h-64 w-full" role="img" aria-label="Incident trend line chart">
             {incidentTrendsData.map((item, index) => {
               const x = padding + index * xStep;
               return (
                 <g key={item.week}>
-                  <line x1={x} x2={x} y1={padding} y2={height - padding} stroke="rgba(148,163,184,0.12)" strokeDasharray="3 4" />
-                  <text x={x} y={height - 6} textAnchor="middle" fill="#94A3B8" fontSize="11">{item.week}</text>
+                  <line x1={x} x2={x} y1={padding} y2={height - padding} stroke="var(--chart-grid)" strokeDasharray="3 4" />
+                  <text x={x} y={height - 6} textAnchor="middle" fill="var(--chart-axis)" fontSize="11">{item.week}</text>
                 </g>
               );
             })}
 
             {[0, 1, 2, 3].map((tick) => {
               const y = padding + ((height - padding * 2) / 3) * tick;
-              return <line key={tick} x1={padding} x2={width - padding} y1={y} y2={y} stroke="rgba(148,163,184,0.16)" />;
+              return <line key={tick} x1={padding} x2={width - padding} y1={y} y2={y} stroke="var(--chart-grid)" />;
             })}
 
-            <polyline points={points} fill="none" stroke="#06B6D4" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+            <polyline points={points} fill="none" stroke="var(--chart-line)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
             {incidentTrendsData.map((item, index) => {
               const x = padding + index * xStep;
               const y = normalizeY(item.risk);
               return (
                 <g key={`${item.week}-dot`}>
-                  <circle cx={x} cy={y} r="4" fill="#06B6D4" />
+                  <circle cx={x} cy={y} r="4" fill="var(--chart-line)" />
                   <title>{`${item.week}: ${item.risk}`}</title>
                 </g>
               );

@@ -103,10 +103,10 @@ const InstitutionPage = () => {
   }, [selectedInstitution]);
 
   return (
-    <div className="space-y-4">
-      <section className="glass-card p-5">
-        <h1 className="text-xl font-semibold">Institution Intelligence</h1>
-        <p className="mt-1 text-sm text-muted">
+    <div className="space-y-5">
+      <section className="glass-card p-5 md:p-6">
+        <h1 className="page-title">Institution Intelligence</h1>
+        <p className="page-subtitle">
           Production dataset with geolocation, accreditation, and hazard metadata for preparedness planning.
         </p>
 
@@ -116,13 +116,13 @@ const InstitutionPage = () => {
             value={filters.q}
             onChange={onFilterChange}
             placeholder="Search name, city, code"
-            className="focus-ring rounded-xl border border-white/10 bg-slate-900/30 px-3 py-2 text-sm"
+            className="panel-input focus-ring h-10 rounded-xl px-3 text-sm"
           />
           <select
             name="state"
             value={filters.state}
             onChange={onFilterChange}
-            className="focus-ring rounded-xl border border-white/10 bg-slate-900/30 px-3 py-2 text-sm"
+            className="panel-select focus-ring h-10 rounded-xl px-3 text-sm"
           >
             <option value="">All states</option>
             {stateOptions.map((state) => (
@@ -135,7 +135,7 @@ const InstitutionPage = () => {
             name="type"
             value={filters.type}
             onChange={onFilterChange}
-            className="focus-ring rounded-xl border border-white/10 bg-slate-900/30 px-3 py-2 text-sm"
+            className="panel-select focus-ring h-10 rounded-xl px-3 text-sm"
           >
             <option value="">All types</option>
             <option value="Central">Central</option>
@@ -147,7 +147,7 @@ const InstitutionPage = () => {
             name="earthquakeZone"
             value={filters.earthquakeZone}
             onChange={onFilterChange}
-            className="focus-ring rounded-xl border border-white/10 bg-slate-900/30 px-3 py-2 text-sm"
+            className="panel-select focus-ring h-10 rounded-xl px-3 text-sm"
           >
             <option value="">All EQ zones</option>
             <option value="II">II</option>
@@ -159,7 +159,7 @@ const InstitutionPage = () => {
             name="floodRisk"
             value={filters.floodRisk}
             onChange={onFilterChange}
-            className="focus-ring rounded-xl border border-white/10 bg-slate-900/30 px-3 py-2 text-sm"
+            className="panel-select focus-ring h-10 rounded-xl px-3 text-sm"
           >
             <option value="">All flood risk</option>
             <option value="Low">Low</option>
@@ -167,7 +167,7 @@ const InstitutionPage = () => {
             <option value="High">High</option>
           </select>
           <div className="flex gap-2">
-            <button type="submit" className="interactive focus-ring rounded-full bg-secondary px-4 py-2 text-xs font-semibold text-white">
+            <button type="submit" className="interactive focus-ring rounded-full bg-secondary px-4 py-2 text-xs font-semibold leading-none text-white">
               Apply
             </button>
             <button
@@ -176,7 +176,7 @@ const InstitutionPage = () => {
                 setFilters(filterDefaults);
                 fetchData(1, filterDefaults);
               }}
-              className="focus-ring rounded-full border border-white/15 px-4 py-2 text-xs"
+              className="icon-button focus-ring rounded-full px-4 py-2 text-xs leading-none"
             >
               Reset
             </button>
@@ -185,22 +185,22 @@ const InstitutionPage = () => {
       </section>
 
       <section className="grid gap-4 md:grid-cols-3">
-        <div className="glass-card p-4">
+        <div className="glass-card flex min-h-[92px] flex-col justify-center p-4">
           <p className="text-xs text-muted">Records</p>
           <p className="mt-1 text-2xl font-semibold">{pagination.total}</p>
         </div>
-        <div className="glass-card p-4">
+        <div className="glass-card flex min-h-[92px] flex-col justify-center p-4">
           <p className="text-xs text-muted">High Flood Risk</p>
           <p className="mt-1 text-2xl font-semibold text-amber-300">{summary.highFlood}</p>
         </div>
-        <div className="glass-card p-4">
+        <div className="glass-card flex min-h-[92px] flex-col justify-center p-4">
           <p className="text-xs text-muted">Earthquake Zone IV/V</p>
           <p className="mt-1 text-2xl font-semibold text-rose-300">{summary.zoneIvOrV}</p>
         </div>
       </section>
 
-      <section className="glass-card p-5">
-        <h2 className="text-sm font-semibold">Dataset Import</h2>
+      <section className="glass-card p-5 md:p-6">
+        <h2 className="section-kicker">Dataset Import</h2>
         <p className="mt-1 text-xs text-muted">Upload a real institution dataset file (.csv or .json) to bulk update records.</p>
 
         <form className="mt-4 flex flex-col gap-3 md:flex-row md:items-center" onSubmit={onUploadSubmit}>
@@ -212,7 +212,7 @@ const InstitutionPage = () => {
               setUploadFile(selected);
               setUploadStatus("");
             }}
-            className="focus-ring rounded-xl border border-white/10 bg-slate-900/30 px-3 py-2 text-xs"
+            className="panel-input focus-ring rounded-xl px-3 py-2 text-xs"
           />
           <button
             type="submit"
@@ -227,8 +227,8 @@ const InstitutionPage = () => {
       </section>
 
       <section className="grid gap-4 lg:grid-cols-3">
-        <div className="glass-card p-4 lg:col-span-2">
-          <h2 className="text-sm font-semibold">Institution Map Explorer</h2>
+        <div className="glass-card p-4 md:p-5 lg:col-span-2">
+          <h2 className="section-kicker">Institution Map Explorer</h2>
           <p className="mt-1 text-xs text-muted">Select an institution to view its mapped coordinates.</p>
           {selectedMapUrl ? (
             <iframe
@@ -253,7 +253,7 @@ const InstitutionPage = () => {
             </a>
           )}
         </div>
-        <aside className="glass-card p-4">
+        <aside className="glass-card p-4 md:p-5">
           <h3 className="text-sm font-semibold">Map Selection</h3>
           <div className="mt-3 max-h-[310px] space-y-2 overflow-auto pr-1">
             {records.map((item) => {
@@ -349,7 +349,7 @@ const InstitutionPage = () => {
           ))}
         </div>
 
-        <div className="flex items-center justify-between text-xs text-muted">
+        <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-muted">
           <span>
             Page {pagination.page} of {Math.max(pagination.totalPages || 1, 1)}
           </span>
@@ -358,7 +358,7 @@ const InstitutionPage = () => {
               type="button"
               disabled={pagination.page <= 1}
               onClick={() => fetchData((pagination.page || 1) - 1)}
-              className="focus-ring rounded-full border border-white/20 px-3 py-1 disabled:opacity-40"
+              className="icon-button focus-ring rounded-full px-3 py-1 disabled:opacity-40"
             >
               Previous
             </button>
@@ -366,7 +366,7 @@ const InstitutionPage = () => {
               type="button"
               disabled={(pagination.page || 1) >= (pagination.totalPages || 1)}
               onClick={() => fetchData((pagination.page || 1) + 1)}
-              className="focus-ring rounded-full border border-white/20 px-3 py-1 disabled:opacity-40"
+              className="icon-button focus-ring rounded-full px-3 py-1 disabled:opacity-40"
             >
               Next
             </button>

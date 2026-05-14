@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth.js";
 import AppLayout from "../layouts/AppLayout.jsx";
 import AuthLayout from "../layouts/AuthLayout.jsx";
+import { canRoleAccessPath } from "../shared/auth/roleAccess.js";
 
 const Login = lazy(() => import("../pages/Login.jsx"));
 const Register = lazy(() => import("../pages/Register.jsx"));
@@ -12,33 +13,6 @@ const SimulationLabPage = lazy(() => import("../features/simulation/SimulationLa
 const AIInsightsPage = lazy(() => import("../features/insights/AIInsightsPage.jsx"));
 const LearningCenterPage = lazy(() => import("../features/learning/LearningCenterPage.jsx"));
 const ReportsPage = lazy(() => import("../features/reports/ReportsPage.jsx"));
-
-const roleAccess = {
-  Administrator: [
-    "/",
-    "/institution",
-    "/simulation",
-    "/ai-insights",
-    "/learning",
-    "/reports",
-  ],
-  Teacher: [
-    "/",
-    "/institution",
-    "/simulation",
-    "/ai-insights",
-    "/learning",
-    "/reports",
-  ],
-  DisasterOfficer: [
-    "/",
-    "/institution",
-    "/simulation",
-    "/ai-insights",
-    "/reports",
-  ],
-  Student: ["/", "/learning"],
-};
 
 const RouteLoader = () => (
   <div className="glass-card grid min-h-[220px] place-items-center p-6 text-sm text-muted">Loading module...</div>
@@ -55,8 +29,7 @@ const ProtectedRoute = ({ children }) => {
 const RoleRoute = ({ children, path }) => {
   const { user } = useAuth();
   if (!user) return <Navigate to="/login" replace />;
-  const allowed = roleAccess[user.role] || [];
-  if (!allowed.includes(path)) return <Navigate to="/" replace />;
+  if (!canRoleAccessPath(user.role, path)) return <Navigate to="/" replace />;
   return children;
 };
 

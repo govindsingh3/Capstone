@@ -6,10 +6,13 @@ const quizResultSchema = new mongoose.Schema(
     contentId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "LearningContent",
-      required: true,
+      required: false,
     },
+    contentKey: { type: String, trim: true },
     score: { type: Number, min: 0, max: 100, required: true },
     attempts: { type: Number, min: 1, default: 1 },
+    difficulty: { type: String, enum: ["easy", "medium", "hard"] },
+    weakAreas: [{ type: String, trim: true }],
     completedAt: { type: Date, default: Date.now },
   },
   { timestamps: true }

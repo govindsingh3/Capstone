@@ -9,9 +9,12 @@ const contentSchema = Joi.object({
 });
 
 const quizResultSchema = Joi.object({
-  contentId: Joi.string().required(),
+  contentId: Joi.string().optional(),
+  contentKey: Joi.string().min(2).optional(),
   score: Joi.number().min(0).max(100).required(),
   attempts: Joi.number().min(1).optional(),
-});
+  difficulty: Joi.string().valid("easy", "medium", "hard").optional(),
+  weakAreas: Joi.array().items(Joi.string().min(2)).max(6).optional(),
+}).or("contentId", "contentKey");
 
 module.exports = { contentSchema, quizResultSchema };

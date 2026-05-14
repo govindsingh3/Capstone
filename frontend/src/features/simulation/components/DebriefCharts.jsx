@@ -28,11 +28,11 @@ const DebriefCharts = ({ report }) => {
         <div className="h-64">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={breakdownData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.2)" />
-              <XAxis dataKey="metric" stroke="#94A3B8" fontSize={12} />
-              <YAxis stroke="#94A3B8" fontSize={12} domain={[0, 100]} />
-              <Tooltip contentStyle={{ background: "#0f172a", border: "1px solid rgba(148,163,184,0.2)", borderRadius: 12 }} />
-              <Bar dataKey="value" fill="#3B82F6" radius={[8, 8, 0, 0]} />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
+              <XAxis dataKey="metric" stroke="var(--chart-axis)" fontSize={12} />
+              <YAxis stroke="var(--chart-axis)" fontSize={12} domain={[0, 100]} />
+              <Tooltip contentStyle={{ background: "var(--chart-tooltip-bg)", border: "1px solid var(--chart-tooltip-border)", borderRadius: 12 }} labelStyle={{ color: "var(--chart-tooltip-label)" }} />
+              <Bar dataKey="value" fill="var(--chart-bar)" radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -43,12 +43,12 @@ const DebriefCharts = ({ report }) => {
         <div className="h-64">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={heatmapData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.2)" />
-              <XAxis dataKey="zone" stroke="#94A3B8" fontSize={11} interval={0} angle={-20} textAnchor="end" height={56} />
-              <YAxis stroke="#94A3B8" fontSize={12} />
-              <Tooltip contentStyle={{ background: "#0f172a", border: "1px solid rgba(148,163,184,0.2)", borderRadius: 12 }} />
-              <Bar dataKey="incidents" fill="#EF4444" radius={[6, 6, 0, 0]} />
-              <Bar dataKey="deployed" fill="#06B6D4" radius={[6, 6, 0, 0]} />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
+              <XAxis dataKey="zone" stroke="var(--chart-axis)" fontSize={11} interval={0} angle={-20} textAnchor="end" height={56} />
+              <YAxis stroke="var(--chart-axis)" fontSize={12} />
+              <Tooltip contentStyle={{ background: "var(--chart-tooltip-bg)", border: "1px solid var(--chart-tooltip-border)", borderRadius: 12 }} labelStyle={{ color: "var(--chart-tooltip-label)" }} />
+              <Bar dataKey="incidents" fill="var(--chart-danger)" radius={[6, 6, 0, 0]} />
+              <Bar dataKey="deployed" fill="var(--chart-line)" radius={[6, 6, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
