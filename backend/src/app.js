@@ -27,6 +27,16 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
+app.get("/", (req, res) => {
+  res.json({
+    status: "DPRES API is running",
+    endpoints: {
+      health: "/health",
+      api: "/api/v1",
+    },
+  });
+});
+
 app.get("/health", (req, res) => {
   res.json({ status: "ok" });
 });
