@@ -19,7 +19,7 @@ const CampusMap = ({ zones, selectedZoneId, onSelectZone }) => {
         <h3 className="text-sm font-semibold">Interactive Campus Map</h3>
         <p className="text-xs text-muted">Click zone to dispatch teams</p>
       </div>
-      <svg viewBox="0 0 470 260" className="w-full rounded-lg border border-white/10 bg-slate-950/70 p-2" role="img" aria-label="Campus danger zone map">
+      <svg viewBox="0 0 470 260" className="w-full rounded-lg p-2" style={{ border: '1px solid var(--border)', background: 'var(--input-bg)' }} role="img" aria-label="Campus danger zone map">
         <rect x="8" y="8" width="454" height="244" rx="10" fill="#0B1225" stroke="#1E293B" />
         {zones.map((zone) => {
           const geo = zoneGeometry[zone.id];

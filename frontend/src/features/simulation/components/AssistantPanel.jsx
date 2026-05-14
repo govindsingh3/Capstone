@@ -11,7 +11,7 @@ const AssistantPanel = ({ riskLevel, advice }) => {
         <h3 className="text-sm font-semibold">AI Command Assistant</h3>
         <span className={`rounded-full px-3 py-1 text-xs ${riskTone[riskLevel] || riskTone.Low}`}>Risk: {riskLevel}</span>
       </div>
-      <div className="rounded-lg border border-white/10 bg-slate-900/30 p-3">
+      <div className="rounded-lg p-3" style={{ background: 'var(--input-bg)', border: '1px solid var(--border)' }}>
         <p className="text-sm font-medium">{advice.headline}</p>
         <p className="mt-2 text-sm text-muted">{advice.recommendation}</p>
       </div>

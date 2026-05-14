@@ -27,7 +27,11 @@ const IncidentTrendsChart = () => {
           <AlertTriangle className="h-4 w-4 text-accent" />
           <h2 className="text-sm text-muted">Incident Trends (Risk Index)</h2>
         </div>
+<<<<<<< HEAD
         <div className="panel-select rounded-xl p-3">
+=======
+        <div className="item-card p-3" style={{ borderRadius: '0.75rem' }}>
+>>>>>>> 17a7e3f37a5ab5d3984af2cc6447046e60c6916b
           <svg viewBox={`0 0 ${width} ${height}`} className="h-64 w-full" role="img" aria-label="Incident trend line chart">
             {incidentTrendsData.map((item, index) => {
               const x = padding + index * xStep;

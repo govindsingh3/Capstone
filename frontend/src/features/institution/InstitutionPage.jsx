@@ -116,13 +116,21 @@ const InstitutionPage = () => {
             value={filters.q}
             onChange={onFilterChange}
             placeholder="Search name, city, code"
+<<<<<<< HEAD
             className="panel-input focus-ring h-10 rounded-xl px-3 text-sm"
+=======
+            className="focus-ring input-field px-3 py-2 text-sm"
+>>>>>>> 17a7e3f37a5ab5d3984af2cc6447046e60c6916b
           />
           <select
             name="state"
             value={filters.state}
             onChange={onFilterChange}
+<<<<<<< HEAD
             className="panel-select focus-ring h-10 rounded-xl px-3 text-sm"
+=======
+            className="focus-ring input-field px-3 py-2 text-sm"
+>>>>>>> 17a7e3f37a5ab5d3984af2cc6447046e60c6916b
           >
             <option value="">All states</option>
             {stateOptions.map((state) => (
@@ -135,7 +143,11 @@ const InstitutionPage = () => {
             name="type"
             value={filters.type}
             onChange={onFilterChange}
+<<<<<<< HEAD
             className="panel-select focus-ring h-10 rounded-xl px-3 text-sm"
+=======
+            className="focus-ring input-field px-3 py-2 text-sm"
+>>>>>>> 17a7e3f37a5ab5d3984af2cc6447046e60c6916b
           >
             <option value="">All types</option>
             <option value="Central">Central</option>
@@ -147,7 +159,11 @@ const InstitutionPage = () => {
             name="earthquakeZone"
             value={filters.earthquakeZone}
             onChange={onFilterChange}
+<<<<<<< HEAD
             className="panel-select focus-ring h-10 rounded-xl px-3 text-sm"
+=======
+            className="focus-ring input-field px-3 py-2 text-sm"
+>>>>>>> 17a7e3f37a5ab5d3984af2cc6447046e60c6916b
           >
             <option value="">All EQ zones</option>
             <option value="II">II</option>
@@ -159,7 +175,11 @@ const InstitutionPage = () => {
             name="floodRisk"
             value={filters.floodRisk}
             onChange={onFilterChange}
+<<<<<<< HEAD
             className="panel-select focus-ring h-10 rounded-xl px-3 text-sm"
+=======
+            className="focus-ring input-field px-3 py-2 text-sm"
+>>>>>>> 17a7e3f37a5ab5d3984af2cc6447046e60c6916b
           >
             <option value="">All flood risk</option>
             <option value="Low">Low</option>
@@ -176,7 +196,11 @@ const InstitutionPage = () => {
                 setFilters(filterDefaults);
                 fetchData(1, filterDefaults);
               }}
+<<<<<<< HEAD
               className="icon-button focus-ring rounded-full px-4 py-2 text-xs leading-none"
+=======
+              className="focus-ring rounded-full ghost-btn px-4 py-2 text-xs"
+>>>>>>> 17a7e3f37a5ab5d3984af2cc6447046e60c6916b
             >
               Reset
             </button>
@@ -212,7 +236,11 @@ const InstitutionPage = () => {
               setUploadFile(selected);
               setUploadStatus("");
             }}
+<<<<<<< HEAD
             className="panel-input focus-ring rounded-xl px-3 py-2 text-xs"
+=======
+            className="focus-ring input-field px-3 py-2 text-xs"
+>>>>>>> 17a7e3f37a5ab5d3984af2cc6447046e60c6916b
           />
           <button
             type="submit"
@@ -238,7 +266,7 @@ const InstitutionPage = () => {
               loading="lazy"
             />
           ) : (
-            <div className="mt-3 grid h-[280px] place-items-center rounded-xl border border-white/10 bg-slate-900/20 text-xs text-muted">
+            <div className="mt-3 grid h-[280px] place-items-center item-card text-xs text-muted">
               No map coordinates available.
             </div>
           )}
@@ -247,7 +275,7 @@ const InstitutionPage = () => {
               href={`https://www.openstreetmap.org/?mlat=${selectedInstitution.latitude}&mlon=${selectedInstitution.longitude}#map=12/${selectedInstitution.latitude}/${selectedInstitution.longitude}`}
               target="_blank"
               rel="noreferrer"
-              className="mt-3 inline-block rounded-full border border-white/20 px-3 py-1 text-xs hover:bg-white/5"
+              className="mt-3 inline-block rounded-full ghost-btn px-3 py-1 text-xs hover:bg-white/5"
             >
               Open in OpenStreetMap
             </a>
@@ -267,7 +295,7 @@ const InstitutionPage = () => {
                   className={`w-full rounded-xl border px-3 py-2 text-left text-xs transition ${
                     isActive
                       ? "border-emerald-300/50 bg-emerald-500/10"
-                      : "border-white/10 bg-slate-900/20 hover:bg-white/5"
+                      : "ghost-btn bg-transparent hover:bg-secondary/10"
                   }`}
                 >
                   <p className="font-medium">{item.name}</p>
@@ -335,12 +363,12 @@ const InstitutionPage = () => {
 
               <div className="mt-4 flex flex-wrap gap-2 text-xs">
                 {item.website && (
-                  <a className="rounded-full border border-white/20 px-3 py-1 hover:bg-white/5" href={item.website} target="_blank" rel="noreferrer">
+                  <a className="rounded-full ghost-btn px-3 py-1 hover:bg-secondary/10" href={item.website} target="_blank" rel="noreferrer">
                     Website
                   </a>
                 )}
                 {item.contactEmail && (
-                  <a className="rounded-full border border-white/20 px-3 py-1 hover:bg-white/5" href={`mailto:${item.contactEmail}`}>
+                  <a className="rounded-full ghost-btn px-3 py-1 hover:bg-secondary/10" href={`mailto:${item.contactEmail}`}>
                     {item.contactEmail}
                   </a>
                 )}
@@ -358,7 +386,11 @@ const InstitutionPage = () => {
               type="button"
               disabled={pagination.page <= 1}
               onClick={() => fetchData((pagination.page || 1) - 1)}
+<<<<<<< HEAD
               className="icon-button focus-ring rounded-full px-3 py-1 disabled:opacity-40"
+=======
+              className="focus-ring rounded-full ghost-btn px-3 py-1 disabled:opacity-40"
+>>>>>>> 17a7e3f37a5ab5d3984af2cc6447046e60c6916b
             >
               Previous
             </button>
@@ -366,7 +398,11 @@ const InstitutionPage = () => {
               type="button"
               disabled={(pagination.page || 1) >= (pagination.totalPages || 1)}
               onClick={() => fetchData((pagination.page || 1) + 1)}
+<<<<<<< HEAD
               className="icon-button focus-ring rounded-full px-3 py-1 disabled:opacity-40"
+=======
+              className="focus-ring rounded-full ghost-btn px-3 py-1 disabled:opacity-40"
+>>>>>>> 17a7e3f37a5ab5d3984af2cc6447046e60c6916b
             >
               Next
             </button>

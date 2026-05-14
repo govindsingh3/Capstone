@@ -231,6 +231,7 @@ const ReportsPage = () => {
           </select>
         </div>
 
+<<<<<<< HEAD
         <div className="overflow-x-auto">
           <table className="min-w-full table-auto text-sm" aria-label="Preparedness reports table">
             <thead>
@@ -376,6 +377,27 @@ const ReportsPage = () => {
           </div>
         </article>
       </section>
+=======
+      <div className="mt-4 flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => setPage((value) => Math.max(1, value - 1))}
+          className="focus-ring rounded-full ghost-btn px-3 py-1 text-sm"
+          disabled={page === 1}
+        >
+          Prev
+        </button>
+        <span className="text-sm text-muted">Page {page} of {pageCount}</span>
+        <button
+          type="button"
+          onClick={() => setPage((value) => Math.min(pageCount, value + 1))}
+          className="focus-ring rounded-full ghost-btn px-3 py-1 text-sm"
+          disabled={page === pageCount}
+        >
+          Next
+        </button>
+      </div>
+>>>>>>> 17a7e3f37a5ab5d3984af2cc6447046e60c6916b
     </section>
   );
 };

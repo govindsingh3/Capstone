@@ -126,6 +126,7 @@ const AIInsightsPage = () => {
         </article>
       </section>
 
+<<<<<<< HEAD
       <aside className="glass-card flex min-h-[700px] flex-col p-5 md:p-6 lg:sticky lg:top-5 lg:self-start">
         <div className="mb-4 flex flex-col gap-4 rounded-3xl border border-slate-800 bg-slate-950/70 p-4 shadow-inner shadow-slate-950/40 sm:flex-row sm:items-center sm:justify-between">
           <div>
@@ -183,11 +184,28 @@ const AIInsightsPage = () => {
               type="button"
               onClick={() => handleSuggestion(option)}
               className="rounded-full border border-slate-700 bg-slate-900 px-4 py-2 text-sm text-slate-200 transition hover:border-slate-500 hover:bg-slate-800"
+=======
+      <aside className="glass-card flex h-[420px] flex-col p-4">
+        <h2 className="mb-3 text-sm text-muted">AI Recommendation Chat</h2>
+        <div className="flex-1 space-y-3 overflow-y-auto pr-1">
+          {messages.map((msg, index) => (
+            <div
+              key={`${msg.from}-${index}`}
+              className={`max-w-[90%] rounded-xl px-3 py-2 text-sm ${
+                msg.from === "ai" ? "bg-secondary/15" : "ml-auto"
+              }`}
+              style={{
+                color: msg.from === "ai" ? "var(--nav-active-text)" : "var(--text-primary)",
+                background: msg.from === "user" ? "var(--input-bg)" : undefined,
+                border: msg.from === "user" ? "1px solid var(--input-border)" : undefined,
+              }}
+>>>>>>> 17a7e3f37a5ab5d3984af2cc6447046e60c6916b
             >
               {option}
             </button>
           ))}
         </div>
+<<<<<<< HEAD
 
         <div className="flex flex-col gap-3">
           <textarea
@@ -213,6 +231,15 @@ const AIInsightsPage = () => {
             {errorMessage && <p className="text-sm text-rose-400">{errorMessage}</p>}
           </div>
         </div>
+=======
+        <input
+          aria-label="Type recommendation query"
+          type="text"
+          placeholder="Ask AI for guidance..."
+          className="focus-ring mt-3 rounded-full px-3 py-2 text-sm w-full"
+          style={{ background: 'var(--input-bg)', border: '1px solid var(--input-border)', color: 'var(--text-primary)' }}
+        />
+>>>>>>> 17a7e3f37a5ab5d3984af2cc6447046e60c6916b
       </aside>
     </div>
   );

@@ -18,7 +18,7 @@ const ActionPanel = ({ actions, teams, resources, selectedZone, onAction }) => {
               type="button"
               onClick={() => onAction(key)}
               disabled={disabled}
-              className="focus-ring interactive rounded-full border border-white/15 px-4 py-2 text-sm text-left disabled:cursor-not-allowed disabled:opacity-45"
+              className="focus-ring interactive rounded-full ghost-btn px-4 py-2 text-sm text-left disabled:cursor-not-allowed disabled:opacity-45"
             >
               {label}
             </button>

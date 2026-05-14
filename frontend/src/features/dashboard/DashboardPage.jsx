@@ -214,8 +214,13 @@ const DashboardPage = () => {
         <article className="glass-card p-5 md:p-6">
           <h2 className="section-kicker mb-3">Live Alerts</h2>
           <div className="max-h-64 space-y-2 overflow-y-auto pr-1">
+<<<<<<< HEAD
             {alerts.map((alert) => (
               <div key={alert.id} className="panel-select rounded-lg p-3">
+=======
+            {liveAlerts.map((alert) => (
+              <div key={alert.id} className="item-card p-3">
+>>>>>>> 17a7e3f37a5ab5d3984af2cc6447046e60c6916b
                 <div className="mb-1 flex items-start justify-between gap-2">
                   <p className="text-sm">{alert.label}</p>
                   <span className={`rounded-full px-2 py-0.5 text-xs ${levelBadgeClass(alert.level)}`}>{alert.level}</span>

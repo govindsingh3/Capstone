@@ -968,6 +968,7 @@ const LearningCenterPage = () => {
                 allowFullScreen
               />
             </div>
+<<<<<<< HEAD
             <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
               <p className="text-sm text-muted">{selectedVideoLesson.objective}</p>
               <div className="flex items-center gap-2">
@@ -987,6 +988,10 @@ const LearningCenterPage = () => {
                   Open Full Lesson
                 </a>
               </div>
+=======
+            <div className="progress-track h-2">
+              <div className="h-full rounded-full bg-secondary" style={{ width: `${course.progress}%` }} />
+>>>>>>> 17a7e3f37a5ab5d3984af2cc6447046e60c6916b
             </div>
             <p className="mt-1 text-xs text-muted">
               If embedded playback is blocked by network or browser policy, use "Open Full Lesson".

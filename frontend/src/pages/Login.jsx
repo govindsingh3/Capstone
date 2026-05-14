@@ -38,7 +38,7 @@ const Login = () => {
           value={form.email}
           onChange={onChange}
           placeholder="Email"
-          className="focus-ring w-full rounded-xl border border-white/10 bg-slate-900/30 px-4 py-3"
+          className="focus-ring w-full input-field px-4 py-3 w-full"
         />
         <input
           name="password"
@@ -46,7 +46,7 @@ const Login = () => {
           value={form.password}
           onChange={onChange}
           placeholder="Password"
-          className="focus-ring w-full rounded-xl border border-white/10 bg-slate-900/30 px-4 py-3"
+          className="focus-ring w-full input-field px-4 py-3 w-full"
         />
         <button className="interactive focus-ring w-full rounded-full bg-secondary py-3 text-sm font-semibold text-white">
           Sign in

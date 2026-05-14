@@ -44,12 +44,12 @@ const DebriefView = ({ report, onReset, onExport }) => {
           <h3 className="mb-2 text-sm font-semibold">Heatmap (Incident vs Help)</h3>
           <div className="space-y-2">
             {report.heatmap.map((zone) => (
-              <div key={zone.zoneId} className="rounded-lg border border-white/10 p-2">
+              <div key={zone.zoneId} className="rounded-lg ghost-btn p-2">
                 <div className="mb-1 flex justify-between text-sm">
                   <span>{zone.zoneName}</span>
                   <span className="text-muted">Danger {zone.dangerWeight}</span>
                 </div>
-                <div className="h-2 rounded-full bg-slate-800">
+                <div className="progress-track h-2">
                   <div className="h-2 rounded-full bg-rose-500" style={{ width: `${Math.min(100, zone.dangerWeight)}%` }} />
                 </div>
                 <p className="mt-1 text-xs text-muted">Incidents: {zone.incidents} | Help Dispatched: {zone.helpDispatched}</p>
@@ -63,7 +63,7 @@ const DebriefView = ({ report, onReset, onExport }) => {
           <div className="max-h-72 space-y-2 overflow-y-auto pr-1">
             {report.actionLog.length === 0 && <p className="text-sm text-muted">No actions recorded.</p>}
             {report.actionLog.map((entry) => (
-              <div key={entry.id} className="rounded-lg border border-white/10 bg-slate-900/30 p-2 text-sm">
+              <div key={entry.id} className="item-card text-sm">
                 <p className="text-xs text-secondary">{entry.timestamp}</p>
                 <p>{entry.action} at {entry.zone}</p>
                 <p className="text-xs text-muted">{entry.outcome}</p>
@@ -86,7 +86,7 @@ const DebriefView = ({ report, onReset, onExport }) => {
         <button type="button" onClick={onExport} className="interactive focus-ring rounded-full bg-secondary px-4 py-2 text-sm font-semibold">
           Export PDF
         </button>
-        <button type="button" onClick={onReset} className="interactive focus-ring rounded-full border border-white/15 px-4 py-2 text-sm">
+        <button type="button" onClick={onReset} className="interactive focus-ring rounded-full ghost-btn px-4 py-2 text-sm">
           Run New Simulation
         </button>
       </div>
